@@ -1,6 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Welcome to Your Vue.js App</h1>
+    <Users />
   </div>
 </template>
+
+<script>
+import Users from "./components/user-profile";
+
+export default {
+  name: 'App',
+  components: { Users }
+}
+</script>
