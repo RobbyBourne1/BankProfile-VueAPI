@@ -11,11 +11,11 @@
         <v-img class="blue--text d-flex col-2" :src="user.picture.large"></v-img>
         <v-card-title
           class="justify-center">
-        {{user.name.first | capitalizeName }} {{user.name.last | capitalizeName}}
+        {{user.name.first | titleCaseString }} {{user.name.last | titleCaseString}}
         </v-card-title>
         <v-card-text>
-          <p class="align-center">Address: {{user.location.street | capitalizeAddress}}</p>
-          <p>{{user.location.state | capitalizeAddress}}, {{user.location.postcode}}</p>
+          <p class="align-center">Address: {{user.location.street | titleCaseString}}</p>
+          <p>{{user.location.state | titleCaseString}}, {{user.location.postcode}}</p>
         </v-card-text>
       </v-card>
     </div>
@@ -43,21 +43,22 @@ export default {
   },
   computed: {
     fullName() {
-      return this.users.name
-        ? `${this.users.name.first} ${this.users.name.last}`
-        : "";
+        let fullName = ""
+        this.users.forEach(user => {
+            fullName = `${user.name.first} ${user.name.last}` 
+        });
+        return fullName
     },
     filteredList: function () {
+        let fullName = "";
         return this.users.filter(f => {
-            return f.name.first.match(this.filteredData.toLowerCase())
+            fullName = f.name.first + f.name.last
+            return fullName.match(this.filteredData.toLowerCase())
         })
     }
   },
   filters: {
-    capitalizeName: function(value) {
-      return value.charAt(0).toUpperCase() + value.slice(1);
-    },
-    capitalizeAddress: function(value) {
+    titleCaseString: function(value) {
       const address = value
         .split(" ")
         .map(m => {
@@ -66,13 +67,6 @@ export default {
         .join(" ");
       return address;
     },
-    filteredList(value) {
-    //   const firstName = user.name.first
-    //   return this.users.filter(f =>{
-    //       return f.firstName.tolowercase().includes(this.filteredData.toLowerCase())
-    //   })
-      console.log(value);
-    }
   }
 };
 </script>
