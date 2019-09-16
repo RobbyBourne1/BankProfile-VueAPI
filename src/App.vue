@@ -2,8 +2,8 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Star Wars </span>
-        <span class="font-weight-light">Characters</span>
+        <span>Bank </span>
+        <span class="font-weight-light">Users</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
@@ -11,7 +11,7 @@
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
         target="_blank"
       >
-        <span class="mr-2">Latest Release</span>
+        <span class="mr-2"></span>
       </v-btn>
     </v-app-bar>
 
