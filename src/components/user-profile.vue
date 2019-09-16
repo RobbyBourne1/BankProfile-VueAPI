@@ -1,7 +1,6 @@
 <template>
   <v-container class="col-4">
-    <label>Search </label>
-    <input type="text" placeholder="search" v-model=filteredData />
+    <v-text-field single-line solo type="text" placeholder="search" v-model=filteredData />
     <div class="d-flex flex-row flex-wrap justify-center">
       <v-card
         class="d-flex flex-column align-center col-4 justify-space-around"
