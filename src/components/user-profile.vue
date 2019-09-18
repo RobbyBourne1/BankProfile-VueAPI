@@ -16,8 +16,8 @@
         </v-card>
       </div>
     </div>
-    <div>
-      <UserDetail :user="selectedUser" @returnToSearch="returnToSearch" v-if="selectedUser != undefined" />
+    <div class="columns" style="margin:1em;">
+      <UserDetail class="column is-half is-offset-one-quarter" :user="selectedUser" @returnToSearch="returnToSearch" v-if="selectedUser != undefined" />
     </div>
   </v-container>
 </template>
